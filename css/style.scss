@@ -54,17 +54,6 @@ nav{
                 line-height: 3;
                 color:white;
             }
-            &:checked .line {
-                background-color: transparent;
-            }
-            &:checked .line:before {
-                transform: rotate(135deg);
-                top:0;
-            }
-            &:checked .line:after {
-                transform: rotate(-135deg);
-                top:0;
-            }
         }
     }
     .nav-btn{
@@ -97,29 +86,42 @@ nav{
         .line{
             position: relative;
 		    margin-top: 2rem;
-            transition: all .3s;
+            transition: all .3s ease-in-out;
 
             &, &:before, &:after{
-            content:"";
 			width: 3rem;
 			height: 2px;
 			background-color: #444;
             display: inline-block;
-            left:0;
-            
             } 
+            &:before,&:after{
+            content:"";
+			position: absolute;
+			left:0;
+			transform-origin: center;
+		    }
             &:before{
-                position: absolute;
                 top:-0.8rem;
             }
-            
             &:after{
-                position: absolute;
                 top:0.8rem;
-                }
+            }
         }
     }
-       
+    .nav_checkbox:checked + .nav-btn .line{
+        background-color: transparent;
+
+        &:before {
+            transform: rotate(135deg);
+            top:0;
+        }
+        
+        &:after {
+            transform: rotate(-135deg);
+            top:0;
+        }
+    }
+        
     .nav-links{
         position: fixed;
         top:-100%;
