@@ -3,6 +3,21 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 10px;
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+nav .menu .line:before, nav .menu .line:after {
+  content: "";
+  left: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  padding: 0;
+  margin: 0;
+}
+
+nav .menu .line:after {
+  clear: both;
 }
 
 nav {
@@ -21,13 +36,134 @@ nav #logo {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2/3;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: black;
 }
 
+nav .nav_checkbox {
+  display: none;
+}
+
+nav .nav_checkbox:checked ~ .nav-links {
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  list-style: none;
+  width: 100%;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 9;
+  background-color: #3a55c7;
+}
+
+nav .nav_checkbox:checked ~ .nav-links > li a {
+  width: 100%;
+  opacity: 1;
+  text-decoration: none;
+  font-size: 4.5rem;
+  line-height: 3;
+  color: white;
+}
+
+nav .nav-btn {
+  background-color: #fff;
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  top: 1rem;
+  right: 4rem;
+  border-radius: 50%;
+  z-index: 3000;
+  -webkit-box-shadow: 0 1rem 3rem rgba(17, 17, 17, 0.1);
+          box-shadow: 0 1rem 3rem rgba(17, 17, 17, 0.1);
+  text-align: center;
+  cursor: pointer;
+}
+
 nav .menu {
-  -ms-grid-column-align: end;
-      justify-self: end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 1rem;
+}
+
+nav .menu:hover .line {
+  margin-top: .4rem 0;
+}
+
+nav .menu .line {
+  position: relative;
+  margin-top: 3.5rem;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+nav .menu .line, nav .menu .line:before, nav .menu .line:after {
+  width: 3rem;
+  height: 2px;
+  background-color: #444;
+  display: inline-block;
+}
+
+nav .menu .line:before, nav .menu .line:after, nav .menu .line:before:before, nav .menu .line:before:after, nav .menu .line:after:before, nav .menu .line:after:after {
+  margin-top: 0px;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  position: absolute;
+  left: 0;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+nav .menu .line:before, nav .menu .line:before:before, nav .menu .line:after:before {
+  top: -0.8rem;
+}
+
+nav .menu .line:after, nav .menu .line:before:after, nav .menu .line:after:after {
+  top: 0.8rem;
+}
+
+nav .nav-links {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  opacity: 0;
+  width: -100%;
+  height: 0%;
+  background-color: blue;
+  -webkit-transition: all .8s ease-in;
+  transition: all .8s ease-in;
+  -webkit-transition-property: background-color, left,height, width;
+  transition-property: background-color, left,height, width;
+}
+
+nav .nav-links > li a {
+  width: 0;
+  opacity: 0;
+  -webkit-transition: opacity .9s ease-in;
+  transition: opacity .9s ease-in;
 }
 
 section {
@@ -70,12 +206,11 @@ section .hero .headline {
   position: absolute;
   top: 70%;
   left: 10%;
-  font-size: 100px;
+  font-size: 10rem;
   -webkit-transform: translate(-20%, -70%);
           transform: translate(-20%, -70%);
   color: white;
   z-index: 3;
-  font-family: 'Montserrat Subrayada', sans-serif;
 }
 
 .slider {
@@ -84,8 +219,28 @@ section .hero .headline {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: -webkit-gradient(linear, right top, left top, from(#c4f9ff), to(#b5d5ff));
-  background: linear-gradient(to left, #c4f9ff, #b5d5ff);
+  background: -webkit-gradient(linear, right top, left top, from(#ffa700), to(#ffe300));
+  background: linear-gradient(to left, #ffa700, #ffe300);
   z-index: -1;
+}
+
+@media only screen and (max-width: 821px) {
+  nav #logo {
+    font-size: 1.4rem;
+  }
+  section {
+    height: 80vh;
+  }
+  section .hero .headline {
+    font-size: 7rem;
+    left: 15%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  section .hero .headline {
+    font-size: 5rem;
+    left: 18%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
