@@ -7,19 +7,6 @@
   font-family: 'Montserrat Subrayada', sans-serif;
 }
 
-nav .menu .line:before, nav .menu .line:after {
-  content: "";
-  left: 0;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-  padding: 0;
-  margin: 0;
-}
-
-nav .menu .line:after {
-  clear: both;
-}
-
 nav {
   display: -ms-grid;
   display: grid;
@@ -80,6 +67,22 @@ nav .nav_checkbox:checked ~ .nav-links > li a {
   color: white;
 }
 
+nav .nav_checkbox:checked ~ .nav-links:checked .line {
+  background-color: transparent;
+}
+
+nav .nav_checkbox:checked ~ .nav-links:checked .line:before {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  top: 0;
+}
+
+nav .nav_checkbox:checked ~ .nav-links:checked .line:after {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  top: 0;
+}
+
 nav .nav-btn {
   background-color: #fff;
   height: 5rem;
@@ -95,10 +98,19 @@ nav .nav-btn {
   cursor: pointer;
 }
 
+nav .nav-btn:hover .line:before {
+  top: -1rem;
+}
+
+nav .nav-btn:hover .line:after {
+  top: 1rem;
+}
+
 nav .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -106,42 +118,32 @@ nav .menu {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 1rem;
-}
-
-nav .menu:hover .line {
-  margin-top: .4rem 0;
+  margin-top: .5rem;
 }
 
 nav .menu .line {
   position: relative;
-  margin-top: 3.5rem;
+  margin-top: 2rem;
   -webkit-transition: all .3s;
   transition: all .3s;
 }
 
 nav .menu .line, nav .menu .line:before, nav .menu .line:after {
+  content: "";
   width: 3rem;
   height: 2px;
   background-color: #444;
   display: inline-block;
-}
-
-nav .menu .line:before, nav .menu .line:after, nav .menu .line:before:before, nav .menu .line:before:after, nav .menu .line:after:before, nav .menu .line:after:after {
-  margin-top: 0px;
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-  position: absolute;
   left: 0;
-  -webkit-transform-origin: center;
-          transform-origin: center;
 }
 
-nav .menu .line:before, nav .menu .line:before:before, nav .menu .line:after:before {
+nav .menu .line:before {
+  position: absolute;
   top: -0.8rem;
 }
 
-nav .menu .line:after, nav .menu .line:before:after, nav .menu .line:after:after {
+nav .menu .line:after {
+  position: absolute;
   top: 0.8rem;
 }
 

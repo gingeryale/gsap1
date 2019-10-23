@@ -54,6 +54,17 @@ nav{
                 line-height: 3;
                 color:white;
             }
+            &:checked .line {
+                background-color: transparent;
+            }
+            &:checked .line:before {
+                transform: rotate(135deg);
+                top:0;
+            }
+            &:checked .line:after {
+                transform: rotate(-135deg);
+                top:0;
+            }
         }
     }
     .nav-btn{
@@ -68,53 +79,47 @@ nav{
         box-shadow: 0 1rem 3rem  rgba(17,17,17,0.1);
         text-align: center;
         cursor: pointer;
+
+        &:hover .line:before{
+            top: -1rem;
+        }
+        &:hover .line:after{
+            top: 1rem;
+        }
     }
     .menu{
         display:flex;
+        position: relative;
         flex-direction: column;
         align-items: center;
-        padding-top:1rem;
-
-        &:hover{
-            .line{
-                margin-top:.4rem 0;
-            }
-            
-        }
+        margin-top:.5rem;
 
         .line{
             position: relative;
-		    margin-top: 3.5rem;
+		    margin-top: 2rem;
             transition: all .3s;
 
-            &,&:before, &:after{
-            @extend %clearfix;
+            &, &:before, &:after{
+            content:"";
 			width: 3rem;
 			height: 2px;
 			background-color: #444;
             display: inline-block;
-
-            &:before,&:after{
-                @extend %clearfix;
-                margin-top: 0px;
-                box-sizing: inherit;
-                position: absolute;
-                left:0;
-                transform-origin: center;
-            }
+            left:0;
             
+            } 
             &:before{
-                @extend %clearfix;
+                position: absolute;
                 top:-0.8rem;
             }
             
             &:after{
-                @extend %clearfix;
+                position: absolute;
                 top:0.8rem;
                 }
-            } 
         }
     }
+       
     .nav-links{
         position: fixed;
         top:-100%;
