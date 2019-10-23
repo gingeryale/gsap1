@@ -1,0 +1,70 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+nav{
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    min-height: 10vh;
+    color:white;
+    align-items: center;
+
+    #logo{
+        grid-column: 2/3;
+        font-size:24px;
+        color:black;
+    }
+    
+    .menu{
+        justify-self: end;
+    }
+}
+
+section{
+    display: flex;
+    height:80vh;
+    justify-content:center;
+    align-items:center;
+    .hero{
+        width:100%;
+        height:60%;
+        position: relative;
+        img{
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+        &:after{
+            content:"";
+            position: absolute;
+            background:rgba(54,53,134,0.3);
+            width:100%;
+            height:100%;
+            left:0;
+            top:0;
+        }
+        .headline{
+            position: absolute;
+            top:70%;
+            left:10%;
+            font-size: 100px;
+            transform: translate(-20%, -70%);
+            color:white;
+            z-index: 3;
+            font-family: 'Montserrat Subrayada', sans-serif;
+        }
+    }
+    
+}
+
+.slider{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background: linear-gradient(to left, #c4f9ff, #b5d5ff);
+    z-index: -1;
+}

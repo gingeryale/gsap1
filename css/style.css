@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 1fr 1fr 10%;
+      grid-template-columns: 10% 1fr 1fr 10%;
+  min-height: 10vh;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav #logo {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  font-size: 24px;
+  color: black;
+}
+
+nav .menu {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section .hero {
+  width: 100%;
+  height: 60%;
+  position: relative;
+}
+
+section .hero img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section .hero:after {
+  content: "";
+  position: absolute;
+  background: rgba(54, 53, 134, 0.3);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+section .hero .headline {
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  font-size: 100px;
+  -webkit-transform: translate(-20%, -70%);
+          transform: translate(-20%, -70%);
+  color: white;
+  z-index: 3;
+  font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: -webkit-gradient(linear, right top, left top, from(#c4f9ff), to(#b5d5ff));
+  background: linear-gradient(to left, #c4f9ff, #b5d5ff);
+  z-index: -1;
+}
+/*# sourceMappingURL=style.css.map */
